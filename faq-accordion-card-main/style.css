@@ -1,0 +1,199 @@
+:root {
+  /* Cor para os textos */
+  --very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --soft-red: hsl(14, 88%, 65%);
+  --very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --dark-grayish-blue: hsl(240, 6%, 50%);
+
+  /* Cor para os backgrounds gradients*/
+  --soft-violet: hsl(273, 75%, 66%);
+  --soft-blue: hsl(240, 73%, 65%);
+
+  /* Cor dos dividers */
+  --light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  font-family: "Kumbh Sans", sans-serif;
+  background-image: linear-gradient(
+    var(--soft-violet),
+    var(--soft-blue)
+  );
+  color: var(--very-dark-desaturated-blue);
+}
+
+h1, h2, h3 {
+  margin-bottom: 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2rem;
+  max-width: 56rem;
+  padding: 2.875rem 1.5rem;
+  background-image: url('images/bg-pattern-mobile.svg');
+  background-repeat: no-repeat;
+  background-position: center 0%;
+  background-size: 15rem;
+  margin-top: 10rem;
+}
+
+.card__box {
+  display: none;
+}
+
+.card__image {
+  position: relative;
+}
+
+.card__image img {
+  position: absolute;
+  top: -6.9rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-25%);
+  display: block;
+  width: 100%;
+  max-width: 15rem;
+  height: auto;
+}
+
+.card__text {
+  padding-top: 7rem;
+}
+
+.accordion__item {
+  border-bottom: 1px solid var(--light-grayish-blue);
+  padding-top: 0.6rem;
+}
+
+.accordion_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  font-family: "Kumbh Sans", sans-serif;
+  margin: 1rem 0 1rem 0;
+}
+
+.accordion_btn::after {
+  content: '';
+  display: block;
+  width: 0.625rem;
+  height: 1rem;
+  background-image: url('images/icon-arrow-down.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.accordion_btn.open {
+  font-weight: 700;
+}
+
+.accordion_btn:focus,
+.accordion_btn:focus-visible {
+  border: none;
+  outline: solid 1px rgba(0,0,0,0.5);
+}
+
+.accordion_btn.open::after {
+  transform: rotate(180deg);
+}
+
+.accordion__content {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  padding-bottom: 1rem;
+}
+
+.accordion__collapse {
+  transition: height 300ms ease;
+}
+
+.accordion__collapse.collapse {
+  display: none;
+}
+
+.accordion__collapse.collapsing {
+  height: 0;
+  overflow: hidden;
+}
+
+.accordion__collapse.open {
+  display: block;
+}
+
+/* Estilos do desktop */
+@media (min-width: 56em) {
+
+  body {
+    padding: 4rem;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    padding: 4.375rem 6.25rem 4.375rem 0;
+    background-image: url('images/bg-pattern-desktop.svg');
+    background-size: 45%;
+    background-position: -13% center;
+  }
+
+  .card__box {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 57%;
+    left: 0;
+    transform: translateX(-50%) translateY(-60%);
+  }
+
+  .card__text,
+  .card__image {
+    flex: 1;
+  }
+
+  .card__image {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .card__image img {
+    position: relative;
+    top: auto;
+    left: auto;
+    max-width: 25rem;
+    transform: translateX(-4rem) translateY(0);
+  }
+  
+  .card__text {
+    padding-top: 0;
+  }
+}
+
+.attribution {
+  text-align: center;
+}
